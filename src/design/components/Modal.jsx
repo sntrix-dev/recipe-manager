@@ -12,7 +12,7 @@ const Modal = ({ open, onClose, children }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-light shadow-sm rounded-md py-6 px-10 min-w-[17rem] w-1/2 relative"
+        className="bg-light shadow-sm rounded-md py-6 px-10 min-w-[17rem] lg:w-1/2 relative"
       >
         <button className="absolute right-4 top-4" onClick={onClose}>
           <CloseIcon size={24} />

@@ -25,7 +25,7 @@ function App() {
         }}
       />
       <div className="w-full max-w-[1500px] mx-auto px-4 pt-4 flex items-center justify-center gap-10">
-        <div className="relative min-w-[15rem] w-[25%]">
+        <div className="relative min-w-[15rem] w-full lg:w-[25%]">
           <input
             type="text"
             name="search"
@@ -39,7 +39,7 @@ function App() {
           </div>
         </div>
       </div>
-      <main className="w-full max-w-[1500px] mx-auto px-4 py-10 grid grid-cols-2 gap-4">
+      <main className="w-full max-w-[1500px] mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
         <RecipeDataSource
           newRecipe={recipe}
           editData={editData}
