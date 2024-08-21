@@ -60,6 +60,7 @@ const AddRecipe = ({ type, getData, onClose, data, getEditData }) => {
       name: recipeName,
       ingredients,
       steps,
+      show: true,
     };
 
     if (window.localStorage) {
