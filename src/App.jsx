@@ -15,7 +15,7 @@ function App() {
   const [recipe, setRecipe] = useState([]);
   const [editData, setEditData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [recipesCount, setRecipesCount] = useState(0);
+  // const [recipesCount, setRecipesCount] = useState(0);
 
   return (
     <div className="App">
@@ -40,27 +40,27 @@ function App() {
           </div>
         </div>
       </div>
-      {!!recipesCount ? (
-        <main className="w-full max-w-[1500px] mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <RecipeDataSource
-            newRecipe={recipe}
-            editData={editData}
-            getRecipesCount={(count) => setRecipesCount(count)}
-            onEdit={(data) => {
-              setAddModalOpen(true);
-              setModalType("edit");
-              setEditData(data);
-            }}
-            searchTerm={searchTerm.toLowerCase().replace(" ", "")}
-          >
-            <Recipe />
-          </RecipeDataSource>
-        </main>
-      ) : (
+      {/* {!!recipesCount ? ( */}
+      <main className="w-full max-w-[1500px] mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <RecipeDataSource
+          newRecipe={recipe}
+          editData={editData}
+          // getRecipesCount={(count) => setRecipesCount(count)}
+          onEdit={(data) => {
+            setAddModalOpen(true);
+            setModalType("edit");
+            setEditData(data);
+          }}
+          searchTerm={searchTerm.toLowerCase().replace(" ", "")}
+        >
+          <Recipe />
+        </RecipeDataSource>
+      </main>
+      {/* ) : (
         <div className="w-full min-h-[60vh] flex items-center justify-center">
           <h3 className="text-2xl">Start by adding new recipe!</h3>
         </div>
-      )}
+      )} */}
       <Modal open={isAddModalOpen} onClose={() => setAddModalOpen(false)}>
         <AddRecipe
           type={modalType}
