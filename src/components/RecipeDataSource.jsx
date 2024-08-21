@@ -13,9 +13,14 @@ const RecipeDataSource = ({
   onEdit,
   editData,
   searchTerm,
+  getRecipesCount,
 }) => {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipe, setFilteredRecipe] = useState([]);
+
+  useEffect(() => {
+    getRecipesCount(recipes.length);
+  }, [recipes]);
 
   // Getting data from localStorage on Mount
   useEffect(() => {

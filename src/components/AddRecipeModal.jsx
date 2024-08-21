@@ -126,7 +126,10 @@ const AddRecipe = ({ type, getData, onClose, data, getEditData }) => {
                 className="flex bg-primary gap-2 items-center py-1.5 px-4 w-max rounded-full text-white"
               >
                 <h4>{ingredient}</h4>
-                <button onClick={() => handleIngredients("delete", ingredient)}>
+                <button
+                  onClick={() => handleIngredients("delete", ingredient)}
+                  type="button"
+                >
                   <CloseIcon />
                 </button>
               </div>
@@ -162,7 +165,10 @@ const AddRecipe = ({ type, getData, onClose, data, getEditData }) => {
                   <div className="font-semibold w-max">Step {index + 1}:</div>{" "}
                   <div className="flex-1">{step}</div>
                 </div>
-                <button onClick={() => handleSteps("delete", step)}>
+                <button
+                  onClick={() => handleSteps("delete", step)}
+                  type="button"
+                >
                   <CloseIcon />
                 </button>
               </div>
