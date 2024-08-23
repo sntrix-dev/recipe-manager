@@ -13,14 +13,9 @@ const RecipeDataSource = ({
   onEdit,
   editData,
   searchTerm,
-  // getRecipesCount,
 }) => {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipe, setFilteredRecipe] = useState([]);
-
-  // useEffect(() => {
-  //   getRecipesCount(recipes.length);
-  // }, [recipes]);
 
   // Getting data from localStorage on Mount
   useEffect(() => {
@@ -36,7 +31,13 @@ const RecipeDataSource = ({
   //when new recipe is added, adding to the list
   useEffect(() => {
     if (Object.keys(newRecipe).length) {
-      setRecipes((prevState) => [...prevState, newRecipe]);
+      const recipeExists = recipes.filter(
+        (recipe) => recipe.id === newRecipe.id
+      ).length;
+      if (!!recipeExists) {
+        console.log(newRecipe, recipeExists);
+        setRecipes((prevState) => [...prevState, newRecipe]);
+      }
     }
   }, [newRecipe]);
 
