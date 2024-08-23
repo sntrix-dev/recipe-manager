@@ -22,19 +22,11 @@ const Recipe = ({
         isView ? "max-h-[85vh] overflow-auto" : ""
       }`}
     >
-      {!isView && (
-        <div className="absolute top-4 right-4 flex items-center gap-4">
-          <button className="p-1" onClick={onEdit}>
-            <EditIcon />
-          </button>
-          <button className="p-1" onClick={onDelete}>
-            <DeleteIcon />
-          </button>
-        </div>
-      )}
-      <h2 className="text-4xl font-bold text-primary mb-6">{name}</h2>
+      <h2 className="text-2xl lg:text-4xl font-bold text-primary mb-6">
+        {name}
+      </h2>
       <div>
-        <h3 className="text-xl font-semibold">Ingredients</h3>
+        <h3 className="text-lg lg:text-xl font-semibold">Ingredients</h3>
         <ul className="list-disc ml-4 mt-4">
           {(isView ? ingredients : ingredients.slice(0, 3)).map(
             (ingredient, index) => (
@@ -52,7 +44,7 @@ const Recipe = ({
         </ul>
       </div>
       <div className="mt-6">
-        <h3 className="text-xl font-semibold">Cooking Steps</h3>
+        <h3 className="text-lg lg:text-xl font-semibold">Cooking Steps</h3>
         <div className="mt-4">
           {(isView ? steps : steps.slice(0, 2)).map((step, index) => (
             <div key={index} className="flex gap-2">
@@ -69,15 +61,25 @@ const Recipe = ({
             </button>
           )}
           {!isView && (
-            <Button
-              size="lg"
-              fullWidth
-              theme="primary"
-              className=" mt-4"
-              onClick={handleView}
-            >
-              View Complete Recipe
-            </Button>
+            <div className="flex items-center  gap-10">
+              <Button
+                size="lg"
+                fullWidth
+                theme="primary"
+                className=" mt-4"
+                onClick={handleView}
+              >
+                View Complete Recipe
+              </Button>
+              <div className=" flex items-center justify-end gap-4 mt-4">
+                <button className="p-1 text-primary" onClick={onEdit}>
+                  <EditIcon />
+                </button>
+                <button className="p-1 text-primary" onClick={onDelete}>
+                  <DeleteIcon />
+                </button>
+              </div>
+            </div>
           )}
         </div>
       </div>
