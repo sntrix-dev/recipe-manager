@@ -11,11 +11,12 @@ import { SearchIcon } from "./design/icons";
 
 function App() {
   const [isAddModalOpen, setAddModalOpen] = useState(false);
+  const [isViewModalOpen, setViewModalOpen] = useState(false);
   const [modalType, setModalType] = useState("add");
   const [recipe, setRecipe] = useState([]);
   const [editData, setEditData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  // const [recipesCount, setRecipesCount] = useState(0);
+  const [viewData, setViewData] = useState(null);
 
   return (
     <div className="App">
@@ -53,7 +54,10 @@ function App() {
           }}
           searchTerm={searchTerm.toLowerCase().replace(" ", "")}
         >
-          <Recipe />
+          <Recipe
+            setOpenView={() => setViewModalOpen(true)}
+            getViewData={(data) => setViewData(data)}
+          />
         </RecipeDataSource>
       </main>
       {/* ) : (
@@ -69,6 +73,9 @@ function App() {
           getEditData={(data) => setEditData(data)}
           onClose={() => setAddModalOpen(false)}
         />
+      </Modal>
+      <Modal open={isViewModalOpen} onClose={() => setViewModalOpen(false)}>
+        <Recipe {...viewData} isView={true} />
       </Modal>
     </div>
   );

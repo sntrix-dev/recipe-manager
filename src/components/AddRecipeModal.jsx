@@ -92,7 +92,7 @@ const AddRecipe = ({ type, getData, onClose, data, getEditData }) => {
       <h2 className="text-4xl text-center font-semibold">
         {type === "add" ? "Add" : "Update"} Recipe
       </h2>
-      <div className="w-full space-y-4">
+      <div className="w-full space-y-4 max-h-[calc(75vh_-_4rem)] overflow-auto">
         <Textfield
           label="Recipe Name"
           name="recipe-name"
@@ -175,10 +175,10 @@ const AddRecipe = ({ type, getData, onClose, data, getEditData }) => {
             ))}
           </div>
         </div>
-        <Button fullWidth size="lg" theme="dark" type="submit">
-          {type === "add" ? "Add" : "Update"}
-        </Button>
       </div>
+      <Button fullWidth size="lg" theme="dark" type="submit">
+        {type === "add" ? "Add" : "Update"}
+      </Button>
     </form>
   );
 };
